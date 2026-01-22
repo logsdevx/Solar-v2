@@ -23,7 +23,7 @@ function Library:Create(table)
 
     local main = Instance.new("Frame")
     main.Name = "main"
-    main.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    main.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
     main.Position = UDim2.fromScale(0.5, 0.5)
     main.Size = UDim2.fromOffset(380, 240)
     main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -35,7 +35,7 @@ function Library:Create(table)
     -- Top bar
     local topBar = Instance.new("Frame")
     topBar.Name = "topBar"
-    topBar.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    topBar.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
     topBar.Size = UDim2.new(1, 0, 0, 32)
     topBar.Parent = main
 
@@ -44,7 +44,7 @@ function Library:Create(table)
     topBarCorner.Parent = topBar
 
     local topBarCover = Instance.new("Frame")
-    topBarCover.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    topBarCover.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
     topBarCover.BorderSizePixel = 0
     topBarCover.Position = UDim2.new(0, 0, 1, -6)
     topBarCover.Size = UDim2.new(1, 0, 0, 6)
@@ -96,7 +96,7 @@ function Library:Create(table)
     -- Side menu
     local sideMenu = Instance.new("Frame")
     sideMenu.Name = "sideMenu"
-    sideMenu.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    sideMenu.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
     sideMenu.Position = UDim2.fromOffset(-160, 32)
     sideMenu.Size = UDim2.fromOffset(160, 208)
     sideMenu.Visible = false
@@ -182,7 +182,7 @@ function Library:Create(table)
         tabButton.TextColor3 = Color3.fromRGB(180, 180, 180)
         tabButton.TextSize = 12
         tabButton.TextXAlignment = Enum.TextXAlignment.Left
-        tabButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+        tabButton.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
         tabButton.BackgroundTransparency = 0.6
         tabButton.Size = UDim2.new(1, -8, 0, 28)
         tabButton.AutoButtonColor = false
@@ -271,7 +271,7 @@ function Library:Create(table)
 
             local button = Instance.new("TextButton")
             button.Name = "button"
-            button.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            button.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
             button.Size = UDim2.new(1, 0, 0, 32)
             button.Text = ""
             button.AutoButtonColor = false
@@ -294,11 +294,11 @@ function Library:Create(table)
             button.Parent = holder
 
             button.MouseEnter:Connect(function()
-                TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+                TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
             end)
 
             button.MouseLeave:Connect(function()
-                TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(45, 45, 45)}):Play()
+                TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
             end)
 
             button.MouseButton1Click:Connect(function()
@@ -343,7 +343,7 @@ function Library:Create(table)
             local sliderButton = Instance.new("TextButton")
             sliderButton.Name = "sliderButton"
             sliderButton.Text = ""
-            sliderButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            sliderButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
             sliderButton.Position = UDim2.fromOffset(0, 24)
             sliderButton.Size = UDim2.new(1, 0, 0, 6)
             sliderButton.AutoButtonColor = false
@@ -355,7 +355,7 @@ function Library:Create(table)
 
             local sliderFill = Instance.new("Frame")
             sliderFill.Name = "sliderFill"
-            sliderFill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+            sliderFill.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
             sliderFill.Size = UDim2.new(0, 0, 1, 0)
             sliderFill.Parent = sliderButton
 
@@ -423,7 +423,7 @@ function Library:Create(table)
 
             local toggleBox = Instance.new("Frame")
             toggleBox.Name = "toggleBox"
-            toggleBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            toggleBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
             toggleBox.Position = UDim2.new(1, -18, 0.5, -9)
             toggleBox.Size = UDim2.fromOffset(18, 18)
             toggleBox.Parent = toggle1
@@ -433,7 +433,7 @@ function Library:Create(table)
             toggleCorner.Parent = toggleBox
 
             local uIStroke1 = Instance.new("UIStroke")
-            uIStroke1.Color = Color3.fromRGB(70, 70, 70)
+            uIStroke1.Color = Color3.fromRGB(76, 76, 76)
             uIStroke1.Parent = toggleBox
 
             local tog = false
@@ -445,8 +445,8 @@ function Library:Create(table)
                     TweenService:Create(toggleBox, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35, 200, 100)}):Play()
                     TweenService:Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(40, 220, 110)}):Play()
                 else
-                    TweenService:Create(toggleBox, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
-                    TweenService:Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(70, 70, 70)}):Play()
+                    TweenService:Create(toggleBox, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(45, 45, 45)}):Play()
+                    TweenService:Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(76, 76, 76)}):Play()
                 end
             end)
         end
@@ -480,7 +480,7 @@ function Library:Create(table)
             textBox.TextColor3 = Color3.fromRGB(200, 200, 200)
             textBox.TextSize = 11
             textBox.TextXAlignment = Enum.TextXAlignment.Left
-            textBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            textBox.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
             textBox.Position = UDim2.fromOffset(0, 22)
             textBox.Size = UDim2.new(1, 0, 0, 26)
             textBox.Parent = textboxFrame
@@ -529,7 +529,7 @@ function Library:Create(table)
             dropButton.Text = ""
             dropButton.TextColor3 = Color3.fromRGB(180, 180, 180)
             dropButton.TextSize = 11
-            dropButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            dropButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
             dropButton.Position = UDim2.fromOffset(0, 22)
             dropButton.Size = UDim2.new(1, 0, 0, 26)
             dropButton.AutoButtonColor = false
@@ -563,7 +563,7 @@ function Library:Create(table)
 
             local optionsList = Instance.new("Frame")
             optionsList.Name = "optionsList"
-            optionsList.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            optionsList.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
             optionsList.Position = UDim2.fromOffset(0, 50)
             optionsList.Size = UDim2.new(1, 0, 0, 0)
             optionsList.ClipsDescendants = true
@@ -596,7 +596,7 @@ function Library:Create(table)
                 optionBtn.TextColor3 = Color3.fromRGB(180, 180, 180)
                 optionBtn.TextSize = 11
                 optionBtn.TextXAlignment = Enum.TextXAlignment.Left
-                optionBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+                optionBtn.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
                 optionBtn.Size = UDim2.new(1, -6, 0, 24)
                 optionBtn.AutoButtonColor = false
                 optionBtn.Parent = optionsList
@@ -610,11 +610,11 @@ function Library:Create(table)
                 optionPadding.Parent = optionBtn
 
                 optionBtn.MouseEnter:Connect(function()
-                    TweenService:Create(optionBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 60, 60)}):Play()
+                    TweenService:Create(optionBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
                 end)
 
                 optionBtn.MouseLeave:Connect(function()
-                    TweenService:Create(optionBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+                    TweenService:Create(optionBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
                 end)
 
                 optionBtn.MouseButton1Click:Connect(function()
