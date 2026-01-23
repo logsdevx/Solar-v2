@@ -20,6 +20,25 @@ local Mouse = LocalPlayer:GetMouse()
 
 function Library:Create(table)
     local windowName = table.Name
+    local theme = table.Theme or "green" -- default, green, yellow, purple
+
+    -- Theme colors
+    local themeColors = {
+        green = {
+            toggle = Color3.fromRGB(35, 200, 100),
+            toggleStroke = Color3.fromRGB(40, 220, 110)
+        },
+        yellow = {
+            toggle = Color3.fromRGB(255, 200, 50),
+            toggleStroke = Color3.fromRGB(255, 220, 80)
+        },
+        purple = {
+            toggle = Color3.fromRGB(150, 100, 255),
+            toggleStroke = Color3.fromRGB(180, 130, 255)
+        }
+    }
+
+    local currentTheme = themeColors[theme] or themeColors.green
 
     local main = Instance.new("Frame")
     main.Name = "main"
@@ -460,8 +479,8 @@ function Library:Create(table)
                 tog = not tog
                 callback(tog)
                 if tog then
-                    TweenService:Create(toggleBox, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35, 200, 100)}):Play()
-                    TweenService:Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(40, 220, 110)}):Play()
+                    TweenService:Create(toggleBox, TweenInfo.new(0.2), {BackgroundColor3 = currentTheme.toggle}):Play()
+                    TweenService:Create(uIStroke1, TweenInfo.new(0.2), {Color = currentTheme.toggleStroke}):Play()
                 else
                     TweenService:Create(toggleBox, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(45, 45, 45)}):Play()
                     TweenService:Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(76, 76, 76)}):Play()
@@ -497,23 +516,35 @@ function Library:Create(table)
             local textBox = Instance.new("TextBox")
             textBox.Name = "textBox"
             textBox.Font = Enum.Font.Gotham
-            textBox.PlaceholderText = "..."
+            textBox.PlaceholderText = "value1, value2, ..."
             textBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
             textBox.Text = ""
             textBox.TextColor3 = Color3.fromRGB(200, 200, 200)
-            textBox.TextSize = 11
-            textBox.TextXAlignment = Enum.TextXAlignment.Center
+            textBox.TextSize = 10
+            textBox.TextXAlignment = Enum.TextXAlignment.Left
             textBox.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            textBox.Position = UDim2.new(1, -60, 0.5, -10)
-            textBox.Size = UDim2.fromOffset(50, 20)
+            textBox.Position = UDim2.new(0.6, 0, 0.5, -10)
+            textBox.Size = UDim2.new(0.4, -10, 0, 20)
             textBox.Parent = textboxFrame
 
             local textBoxCorner = Instance.new("UICorner")
             textBoxCorner.CornerRadius = UDim.new(0, 4)
             textBoxCorner.Parent = textBox
 
+            local textBoxPadding = Instance.new("UIPadding")
+            textBoxPadding.PaddingLeft = UDim.new(0, 6)
+            textBoxPadding.PaddingRight = UDim.new(0, 6)
+            textBoxPadding.Parent = textBox
+
             textBox.FocusLost:Connect(function()
-                callback(textBox.Text)
+                local values = {}
+                for value in string.gmatch(textBox.Text, "([^,]+)") do
+                    local trimmed = value:match("^%s*(.-)%s*$")
+                    if trimmed ~= "" then
+                        table.insert(values, trimmed)
+                    end
+                end
+                callback(values)
             end)
 
             textboxFrame.MouseEnter:Connect(function()
