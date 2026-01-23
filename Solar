@@ -315,9 +315,13 @@ function Library:Create(table)
 
             local slider = Instance.new("Frame")
             slider.Name = "slider"
-            slider.BackgroundTransparency = 1
+            slider.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
             slider.Size = UDim2.new(1, 0, 0, 32)
             slider.Parent = holder
+
+            local sliderCorner = Instance.new("UICorner")
+            sliderCorner.CornerRadius = UDim.new(0, 4)
+            sliderCorner.Parent = slider
 
             local sliderLabel = Instance.new("TextLabel")
             sliderLabel.Font = Enum.Font.Gotham
@@ -326,7 +330,8 @@ function Library:Create(table)
             sliderLabel.TextSize = 12
             sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
             sliderLabel.BackgroundTransparency = 1
-            sliderLabel.Size = UDim2.new(0.7, 0, 0, 14)
+            sliderLabel.Position = UDim2.fromOffset(10, 0)
+            sliderLabel.Size = UDim2.new(0.5, -10, 0, 12)
             sliderLabel.Parent = slider
 
             local valueLabel = Instance.new("TextLabel")
@@ -336,22 +341,22 @@ function Library:Create(table)
             valueLabel.TextSize = 12
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
-            valueLabel.Position = UDim2.new(0.7, 0, 0, 0)
-            valueLabel.Size = UDim2.new(0.3, 0, 0, 14)
+            valueLabel.Position = UDim2.new(1, -60, 0, 0)
+            valueLabel.Size = UDim2.fromOffset(50, 12)
             valueLabel.Parent = slider
 
             local sliderButton = Instance.new("TextButton")
             sliderButton.Name = "sliderButton"
             sliderButton.Text = ""
             sliderButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            sliderButton.Position = UDim2.fromOffset(0, 20)
-            sliderButton.Size = UDim2.new(1, 0, 0, 6)
+            sliderButton.Position = UDim2.fromOffset(10, 18)
+            sliderButton.Size = UDim2.new(1, -20, 0, 6)
             sliderButton.AutoButtonColor = false
             sliderButton.Parent = slider
 
-            local sliderCorner = Instance.new("UICorner")
-            sliderCorner.CornerRadius = UDim.new(0, 3)
-            sliderCorner.Parent = sliderButton
+            local sliderBtnCorner = Instance.new("UICorner")
+            sliderBtnCorner.CornerRadius = UDim.new(0, 3)
+            sliderBtnCorner.Parent = sliderButton
 
             local sliderFill = Instance.new("Frame")
             sliderFill.Name = "sliderFill"
@@ -405,11 +410,15 @@ function Library:Create(table)
 
             local toggle1 = Instance.new("TextButton")
             toggle1.Name = "toggle1"
-            toggle1.BackgroundTransparency = 1
+            toggle1.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
             toggle1.Size = UDim2.new(1, 0, 0, 32)
             toggle1.Text = ""
             toggle1.AutoButtonColor = false
             toggle1.Parent = holder
+
+            local toggleCorner = Instance.new("UICorner")
+            toggleCorner.CornerRadius = UDim.new(0, 4)
+            toggleCorner.Parent = toggle1
 
             local textLabel4 = Instance.new("TextLabel")
             textLabel4.Font = Enum.Font.Gotham
@@ -418,25 +427,34 @@ function Library:Create(table)
             textLabel4.TextSize = 12
             textLabel4.TextXAlignment = Enum.TextXAlignment.Left
             textLabel4.BackgroundTransparency = 1
-            textLabel4.Size = UDim2.new(0.82, 0, 1, 0)
+            textLabel4.Position = UDim2.fromOffset(10, 0)
+            textLabel4.Size = UDim2.new(0.82, -10, 1, 0)
             textLabel4.Parent = toggle1
 
             local toggleBox = Instance.new("Frame")
             toggleBox.Name = "toggleBox"
             toggleBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-            toggleBox.Position = UDim2.new(1, -18, 0.5, -9)
+            toggleBox.Position = UDim2.new(1, -26, 0.5, -9)
             toggleBox.Size = UDim2.fromOffset(18, 18)
             toggleBox.Parent = toggle1
 
-            local toggleCorner = Instance.new("UICorner")
-            toggleCorner.CornerRadius = UDim.new(0, 3)
-            toggleCorner.Parent = toggleBox
+            local toggleBoxCorner = Instance.new("UICorner")
+            toggleBoxCorner.CornerRadius = UDim.new(0, 3)
+            toggleBoxCorner.Parent = toggleBox
 
             local uIStroke1 = Instance.new("UIStroke")
             uIStroke1.Color = Color3.fromRGB(76, 76, 76)
             uIStroke1.Parent = toggleBox
 
             local tog = false
+
+            toggle1.MouseEnter:Connect(function()
+                TweenService:Create(toggle1, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
+            end)
+
+            toggle1.MouseLeave:Connect(function()
+                TweenService:Create(toggle1, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
+            end)
 
             toggle1.MouseButton1Click:Connect(function()
                 tog = not tog
@@ -457,9 +475,13 @@ function Library:Create(table)
 
             local textboxFrame = Instance.new("Frame")
             textboxFrame.Name = "textbox"
-            textboxFrame.BackgroundTransparency = 1
-            textboxFrame.Size = UDim2.new(1, 0, 0, 40)
+            textboxFrame.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            textboxFrame.Size = UDim2.new(1, 0, 0, 32)
             textboxFrame.Parent = holder
+
+            local textboxCorner = Instance.new("UICorner")
+            textboxCorner.CornerRadius = UDim.new(0, 4)
+            textboxCorner.Parent = textboxFrame
 
             local textboxLabel = Instance.new("TextLabel")
             textboxLabel.Font = Enum.Font.Gotham
@@ -468,36 +490,38 @@ function Library:Create(table)
             textboxLabel.TextSize = 12
             textboxLabel.TextXAlignment = Enum.TextXAlignment.Left
             textboxLabel.BackgroundTransparency = 1
-            textboxLabel.Size = UDim2.new(1, 0, 0, 14)
+            textboxLabel.Position = UDim2.fromOffset(10, 8)
+            textboxLabel.Size = UDim2.new(0.6, -10, 0, 16)
             textboxLabel.Parent = textboxFrame
 
             local textBox = Instance.new("TextBox")
             textBox.Name = "textBox"
             textBox.Font = Enum.Font.Gotham
-            textBox.PlaceholderText = "Enter value..."
+            textBox.PlaceholderText = "..."
             textBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
             textBox.Text = ""
             textBox.TextColor3 = Color3.fromRGB(200, 200, 200)
             textBox.TextSize = 11
-            textBox.TextXAlignment = Enum.TextXAlignment.Left
+            textBox.TextXAlignment = Enum.TextXAlignment.Center
             textBox.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            textBox.Position = UDim2.fromOffset(0, 16)
-            textBox.Size = UDim2.new(1, 0, 0, 24)
+            textBox.Position = UDim2.new(1, -60, 0.5, -10)
+            textBox.Size = UDim2.fromOffset(50, 20)
             textBox.Parent = textboxFrame
 
             local textBoxCorner = Instance.new("UICorner")
             textBoxCorner.CornerRadius = UDim.new(0, 4)
             textBoxCorner.Parent = textBox
 
-            local textBoxPadding = Instance.new("UIPadding")
-            textBoxPadding.PaddingLeft = UDim.new(0, 8)
-            textBoxPadding.PaddingRight = UDim.new(0, 8)
-            textBoxPadding.Parent = textBox
+            textBox.FocusLost:Connect(function()
+                callback(textBox.Text)
+            end)
 
-            textBox.FocusLost:Connect(function(enterPressed)
-                if enterPressed then
-                    callback(textBox.Text)
-                end
+            textboxFrame.MouseEnter:Connect(function()
+                TweenService:Create(textboxFrame, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
+            end)
+
+            textboxFrame.MouseLeave:Connect(function()
+                TweenService:Create(textboxFrame, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
             end)
         end
 
@@ -508,10 +532,14 @@ function Library:Create(table)
 
             local dropdown = Instance.new("Frame")
             dropdown.Name = "dropdown"
-            dropdown.BackgroundTransparency = 1
-            dropdown.Size = UDim2.new(1, 0, 0, 40)
+            dropdown.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            dropdown.Size = UDim2.new(1, 0, 0, 32)
             dropdown.ClipsDescendants = false
             dropdown.Parent = holder
+
+            local dropCorner = Instance.new("UICorner")
+            dropCorner.CornerRadius = UDim.new(0, 4)
+            dropCorner.Parent = dropdown
 
             local dropLabel = Instance.new("TextLabel")
             dropLabel.Font = Enum.Font.Gotham
@@ -520,35 +548,9 @@ function Library:Create(table)
             dropLabel.TextSize = 12
             dropLabel.TextXAlignment = Enum.TextXAlignment.Left
             dropLabel.BackgroundTransparency = 1
-            dropLabel.Size = UDim2.new(1, 0, 0, 14)
+            dropLabel.Position = UDim2.fromOffset(10, 0)
+            dropLabel.Size = UDim2.new(0.6, -10, 1, 0)
             dropLabel.Parent = dropdown
-
-            local dropButton = Instance.new("TextButton")
-            dropButton.Name = "dropButton"
-            dropButton.Font = Enum.Font.Gotham
-            dropButton.Text = ""
-            dropButton.TextColor3 = Color3.fromRGB(180, 180, 180)
-            dropButton.TextSize = 11
-            dropButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            dropButton.Position = UDim2.fromOffset(0, 16)
-            dropButton.Size = UDim2.new(1, 0, 0, 24)
-            dropButton.AutoButtonColor = false
-            dropButton.Parent = dropdown
-
-            local dropCorner = Instance.new("UICorner")
-            dropCorner.CornerRadius = UDim.new(0, 4)
-            dropCorner.Parent = dropButton
-
-            local selectedLabel = Instance.new("TextLabel")
-            selectedLabel.Font = Enum.Font.Gotham
-            selectedLabel.Text = "Select..."
-            selectedLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
-            selectedLabel.TextSize = 11
-            selectedLabel.TextXAlignment = Enum.TextXAlignment.Left
-            selectedLabel.BackgroundTransparency = 1
-            selectedLabel.Position = UDim2.fromOffset(10, 0)
-            selectedLabel.Size = UDim2.new(1, -35, 1, 0)
-            selectedLabel.Parent = dropButton
 
             local arrow = Instance.new("TextLabel")
             arrow.Font = Enum.Font.GothamBold
@@ -556,15 +558,23 @@ function Library:Create(table)
             arrow.TextColor3 = Color3.fromRGB(180, 180, 180)
             arrow.TextSize = 10
             arrow.BackgroundTransparency = 1
-            arrow.Position = UDim2.new(1, -22, 0, 0)
-            arrow.Size = UDim2.fromOffset(18, 24)
+            arrow.Position = UDim2.new(1, -26, 0, 0)
+            arrow.Size = UDim2.fromOffset(18, 32)
             arrow.Rotation = 180
-            arrow.Parent = dropButton
+            arrow.Parent = dropdown
+
+            local dropButton = Instance.new("TextButton")
+            dropButton.Name = "dropButton"
+            dropButton.Text = ""
+            dropButton.BackgroundTransparency = 1
+            dropButton.Size = UDim2.new(1, 0, 1, 0)
+            dropButton.AutoButtonColor = false
+            dropButton.Parent = dropdown
 
             local optionsList = Instance.new("Frame")
             optionsList.Name = "optionsList"
             optionsList.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            optionsList.Position = UDim2.fromOffset(0, 42)
+            optionsList.Position = UDim2.fromOffset(0, 34)
             optionsList.Size = UDim2.new(1, 0, 0, 0)
             optionsList.ClipsDescendants = true
             optionsList.ZIndex = 5
@@ -618,13 +628,21 @@ function Library:Create(table)
                 end)
 
                 optionBtn.MouseButton1Click:Connect(function()
-                    selectedLabel.Text = option
+                    dropLabel.Text = text .. " - " .. option
                     callback(option)
                     isOpen = false
                     TweenService:Create(optionsList, TweenInfo.new(0.2), {Size = UDim2.new(1, 0, 0, 0)}):Play()
                     TweenService:Create(arrow, TweenInfo.new(0.2), {Rotation = 180}):Play()
                 end)
             end
+
+            dropButton.MouseEnter:Connect(function()
+                TweenService:Create(dropdown, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
+            end)
+
+            dropButton.MouseLeave:Connect(function()
+                TweenService:Create(dropdown, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
+            end)
 
             dropButton.MouseButton1Click:Connect(function()
                 isOpen = not isOpen
