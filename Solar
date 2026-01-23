@@ -221,7 +221,7 @@ function Library:Create(table)
         uIPadding1.Parent = holder
 
         local uIListLayout1 = Instance.new("UIListLayout")
-        uIListLayout1.Padding = UDim.new(0, 6)
+        uIListLayout1.Padding = UDim.new(0, 4)
         uIListLayout1.SortOrder = Enum.SortOrder.LayoutOrder
         uIListLayout1.Parent = holder
 
@@ -251,7 +251,7 @@ function Library:Create(table)
             local label = Instance.new("Frame")
             label.Name = "label"
             label.BackgroundTransparency = 1
-            label.Size = UDim2.new(1, 0, 0, 22)
+            label.Size = UDim2.new(1, 0, 0, 18)
             label.Parent = holder
     
             local textLabel = Instance.new("TextLabel")
@@ -316,7 +316,7 @@ function Library:Create(table)
             local slider = Instance.new("Frame")
             slider.Name = "slider"
             slider.BackgroundTransparency = 1
-            slider.Size = UDim2.new(1, 0, 0, 32)
+            slider.Size = UDim2.new(1, 0, 0, 28)
             slider.Parent = holder
 
             local sliderLabel = Instance.new("TextLabel")
@@ -326,7 +326,7 @@ function Library:Create(table)
             sliderLabel.TextSize = 12
             sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
             sliderLabel.BackgroundTransparency = 1
-            sliderLabel.Size = UDim2.new(0.7, 0, 0, 14)
+            sliderLabel.Size = UDim2.new(0.7, 0, 0, 12)
             sliderLabel.Parent = slider
 
             local valueLabel = Instance.new("TextLabel")
@@ -337,14 +337,14 @@ function Library:Create(table)
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
             valueLabel.Position = UDim2.new(0.7, 0, 0, 0)
-            valueLabel.Size = UDim2.new(0.3, 0, 0, 14)
+            valueLabel.Size = UDim2.new(0.3, 0, 0, 12)
             valueLabel.Parent = slider
 
             local sliderButton = Instance.new("TextButton")
             sliderButton.Name = "sliderButton"
             sliderButton.Text = ""
             sliderButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            sliderButton.Position = UDim2.fromOffset(0, 18)
+            sliderButton.Position = UDim2.fromOffset(0, 16)
             sliderButton.Size = UDim2.new(1, 0, 0, 6)
             sliderButton.AutoButtonColor = false
             sliderButton.Parent = slider
@@ -458,7 +458,7 @@ function Library:Create(table)
             local textboxFrame = Instance.new("Frame")
             textboxFrame.Name = "textbox"
             textboxFrame.BackgroundTransparency = 1
-            textboxFrame.Size = UDim2.new(1, 0, 0, 30)
+            textboxFrame.Size = UDim2.new(1, 0, 0, 38)
             textboxFrame.Parent = holder
 
             local textboxLabel = Instance.new("TextLabel")
@@ -468,7 +468,7 @@ function Library:Create(table)
             textboxLabel.TextSize = 12
             textboxLabel.TextXAlignment = Enum.TextXAlignment.Left
             textboxLabel.BackgroundTransparency = 1
-            textboxLabel.Size = UDim2.new(1, 0, 0, 14)
+            textboxLabel.Size = UDim2.new(1, 0, 0, 12)
             textboxLabel.Parent = textboxFrame
 
             local textBox = Instance.new("TextBox")
@@ -481,7 +481,7 @@ function Library:Create(table)
             textBox.TextSize = 11
             textBox.TextXAlignment = Enum.TextXAlignment.Left
             textBox.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            textBox.Position = UDim2.fromOffset(0, 16)
+            textBox.Position = UDim2.fromOffset(0, 14)
             textBox.Size = UDim2.new(1, 0, 0, 24)
             textBox.Parent = textboxFrame
 
@@ -509,7 +509,7 @@ function Library:Create(table)
             local dropdown = Instance.new("Frame")
             dropdown.Name = "dropdown"
             dropdown.BackgroundTransparency = 1
-            dropdown.Size = UDim2.new(1, 0, 0, 30)
+            dropdown.Size = UDim2.new(1, 0, 0, 38)
             dropdown.ClipsDescendants = false
             dropdown.Parent = holder
 
@@ -520,7 +520,7 @@ function Library:Create(table)
             dropLabel.TextSize = 12
             dropLabel.TextXAlignment = Enum.TextXAlignment.Left
             dropLabel.BackgroundTransparency = 1
-            dropLabel.Size = UDim2.new(1, 0, 0, 14)
+            dropLabel.Size = UDim2.new(1, 0, 0, 12)
             dropLabel.Parent = dropdown
 
             local dropButton = Instance.new("TextButton")
@@ -530,7 +530,7 @@ function Library:Create(table)
             dropButton.TextColor3 = Color3.fromRGB(180, 180, 180)
             dropButton.TextSize = 11
             dropButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            dropButton.Position = UDim2.fromOffset(0, 16)
+            dropButton.Position = UDim2.fromOffset(0, 14)
             dropButton.Size = UDim2.new(1, 0, 0, 24)
             dropButton.AutoButtonColor = false
             dropButton.Parent = dropdown
@@ -564,7 +564,7 @@ function Library:Create(table)
             local optionsList = Instance.new("Frame")
             optionsList.Name = "optionsList"
             optionsList.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            optionsList.Position = UDim2.fromOffset(0, 42)
+            optionsList.Position = UDim2.fromOffset(0, 40)
             optionsList.Size = UDim2.new(1, 0, 0, 0)
             optionsList.ClipsDescendants = true
             optionsList.ZIndex = 5
