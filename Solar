@@ -157,13 +157,13 @@ function Library:Create(table)
     local shadow = Instance.new("ImageLabel")
     shadow.Name = "shadow"
     shadow.Image = "rbxassetid://297774371"
-    shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-    shadow.ImageTransparency = 0.4
+    shadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
+    shadow.ImageTransparency = 0.3
     shadow.SliceCenter = Rect.new(20, 20, 280, 280)
     shadow.BackgroundTransparency = 1
     shadow.Position = UDim2.fromScale(0.5, 0.5)
     shadow.AnchorPoint = Vector2.new(0.5, 0.5)
-    shadow.Size = UDim2.fromOffset(380, 240)
+    shadow.Size = UDim2.fromOffset(400, 260)
     shadow.ZIndex = -1
     shadow.Parent = dark_UI
 
@@ -335,7 +335,7 @@ function Library:Create(table)
             local slider = Instance.new("Frame")
             slider.Name = "slider"
             slider.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-            slider.Size = UDim2.new(1, 0, 0, 32)
+            slider.Size = UDim2.new(1, 0, 0, 34)
             slider.Parent = holder
 
             local sliderCorner = Instance.new("UICorner")
@@ -349,8 +349,8 @@ function Library:Create(table)
             sliderLabel.TextSize = 12
             sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
             sliderLabel.BackgroundTransparency = 1
-            sliderLabel.Position = UDim2.fromOffset(10, 8)
-            sliderLabel.Size = UDim2.new(0.5, -10, 0, 16)
+            sliderLabel.Position = UDim2.fromOffset(10, 6)
+            sliderLabel.Size = UDim2.new(0.6, -10, 0, 16)
             sliderLabel.Parent = slider
 
             local valueLabel = Instance.new("TextLabel")
@@ -360,18 +360,68 @@ function Library:Create(table)
             valueLabel.TextSize = 12
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
-            valueLabel.Position = UDim2.new(1, -60, 8, 0)
-            valueLabel.Size = UDim2.fromOffset(50, 16)
+            valueLabel.Position = UDim2.fromOffset(0, 6)
+            valueLabel.Size = UDim2.new(1, -10, 0, 16)
             valueLabel.Parent = slider
 
             local sliderButton = Instance.new("TextButton")
             sliderButton.Name = "sliderButton"
             sliderButton.Text = ""
-            sliderButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-            sliderButton.Position = UDim2.new(0.55, 0, 0, 8)
-            sliderButton.Size = UDim2.new(0.35, 0, 0, 16)
+            sliderButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+            sliderButton.Position = UDim2.fromOffset(10, 24)
+            sliderButton.Size = UDim2.new(1, -20, 0, 6)
             sliderButton.AutoButtonColor = false
             sliderButton.Parent = slider
+
+            local sliderBtnCorner = Instance.new("UICorner")
+            sliderBtnCorner.CornerRadius = UDim.new(0, 3)
+            sliderBtnCorner.Parent = sliderButton
+
+            local sliderFill = Instance.new("Frame")
+            sliderFill.Name = "sliderFill"
+            sliderFill.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+            sliderFill.Size = UDim2.new(0, 0, 1, 0)
+            sliderFill.Parent = sliderButton
+
+            local fillCorner = Instance.new("UICorner")
+            fillCorner.CornerRadius = UDim.new(0, 3)
+            fillCorner.Parent = sliderFill
+
+            local dragging = false
+            
+            local percentage = (default - min) / (max - min)
+            sliderFill.Size = UDim2.new(percentage, 0, 1, 0)
+
+            local function update(input)
+                local pos = input.Position
+                local relativeX = pos.X - sliderButton.AbsolutePosition.X
+                local percentage = math.clamp(relativeX / sliderButton.AbsoluteSize.X, 0, 1)
+                local value = math.floor(min + (max - min) * percentage)
+                
+                valueLabel.Text = tostring(value)
+                TweenService:Create(sliderFill, TweenInfo.new(0.05), {Size = UDim2.new(percentage, 0, 1, 0)}):Play()
+                callback(value)
+            end
+
+            sliderButton.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    dragging = true
+                    update(input)
+                end
+            end)
+
+            sliderButton.InputEnded:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    dragging = false
+                end
+            end)
+
+            UserInputService.InputChanged:Connect(function(input)
+                if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                    update(input)
+                end
+            end)
+        end
 
             local sliderBtnCorner = Instance.new("UICorner")
             sliderBtnCorner.CornerRadius = UDim.new(0, 3)
