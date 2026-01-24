@@ -537,14 +537,18 @@ function Library:Create(table)
             textBoxPadding.Parent = textBox
 
             textBox.FocusLost:Connect(function()
-                local values = {}
-                for value in string.gmatch(textBox.Text, "([^,]+)") do
-                    local trimmed = value:match("^%s*(.-)%s*$")
-                    if trimmed ~= "" then
-                        table.insert(values, trimmed)
+                if textBox.Text ~= "" then
+                    local values = {}
+                    for value in string.gmatch(textBox.Text, "([^,]+)") do
+                        local trimmed = value:match("^%s*(.-)%s*$")
+                        if trimmed ~= "" then
+                            table.insert(values, trimmed)
+                        end
+                    end
+                    if #values > 0 then
+                        callback(values)
                     end
                 end
-                callback(values)
             end)
 
             textboxFrame.MouseEnter:Connect(function()
