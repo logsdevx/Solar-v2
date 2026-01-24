@@ -762,4 +762,3 @@ function Library:Create(table)
 end
 
 return Library
-return Library
