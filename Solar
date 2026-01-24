@@ -350,7 +350,7 @@ function Library:Create(table)
             sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
             sliderLabel.BackgroundTransparency = 1
             sliderLabel.Position = UDim2.fromOffset(10, 8)
-            sliderLabel.Size = UDim2.new(0.5, -10, 0, 16)
+            sliderLabel.Size = UDim2.new(0.6, -10, 0, 16)
             sliderLabel.Parent = slider
 
             local valueLabel = Instance.new("TextLabel")
@@ -360,16 +360,16 @@ function Library:Create(table)
             valueLabel.TextSize = 12
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
-            valueLabel.Position = UDim2.new(1, -60, 8, 0)
-            valueLabel.Size = UDim2.fromOffset(50, 16)
+            valueLabel.Position = UDim2.fromOffset(0, 8)
+            valueLabel.Size = UDim2.new(1, -10, 0, 16)
             valueLabel.Parent = slider
 
             local sliderButton = Instance.new("TextButton")
             sliderButton.Name = "sliderButton"
             sliderButton.Text = ""
-            sliderButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-            sliderButton.Position = UDim2.new(0.55, 0, 0, 8)
-            sliderButton.Size = UDim2.new(0.35, 0, 0, 16)
+            sliderButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+            sliderButton.Position = UDim2.fromOffset(10, 22)
+            sliderButton.Size = UDim2.new(1, -20, 0, 6)
             sliderButton.AutoButtonColor = false
             sliderButton.Parent = slider
 
