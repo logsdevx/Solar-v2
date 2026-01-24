@@ -349,8 +349,8 @@ function Library:Create(table)
             sliderLabel.TextSize = 12
             sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
             sliderLabel.BackgroundTransparency = 1
-            sliderLabel.Position = UDim2.fromOffset(10, 6)
-            sliderLabel.Size = UDim2.new(0.6, -10, 0, 12)
+            sliderLabel.Position = UDim2.fromOffset(10, 8)
+            sliderLabel.Size = UDim2.new(0.6, -10, 0, 16)
             sliderLabel.Parent = slider
 
             local valueLabel = Instance.new("TextLabel")
@@ -360,8 +360,8 @@ function Library:Create(table)
             valueLabel.TextSize = 12
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
-            valueLabel.Position = UDim2.new(1, -50, 0, 6)
-            valueLabel.Size = UDim2.fromOffset(40, 12)
+            valueLabel.Position = UDim2.fromOffset(0, 8)
+            valueLabel.Size = UDim2.new(1, -10, 0, 16)
             valueLabel.Parent = slider
 
             local sliderButton = Instance.new("TextButton")
