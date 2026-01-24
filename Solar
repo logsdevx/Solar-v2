@@ -536,7 +536,7 @@ function Library:Create(table)
             textBoxPadding.PaddingRight = UDim.new(0, 6)
             textBoxPadding.Parent = textBox
 
-            textBox.FocusLost:Connect(function()
+            local function processText()
                 if textBox.Text ~= "" then
                     local values = {}
                     for value in string.gmatch(textBox.Text, "([^,]+)") do
@@ -548,6 +548,18 @@ function Library:Create(table)
                     if #values > 0 then
                         callback(values)
                     end
+                else
+                    callback({})
+                end
+            end
+
+            textBox.FocusLost:Connect(function(enterPressed)
+                processText()
+            end)
+
+            textBox:GetPropertyChangedSignal("Text"):Connect(function()
+                if textBox.Text ~= "" then
+                    processText()
                 end
             end)
 
