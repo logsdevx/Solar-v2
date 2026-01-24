@@ -360,7 +360,7 @@ function Library:Create(table)
             valueLabel.TextSize = 12
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
-            valueLabel.Position = UDim2.new(1, -50, 6, 0)
+            valueLabel.Position = UDim2.new(1, -50, 0, 6)
             valueLabel.Size = UDim2.fromOffset(40, 12)
             valueLabel.Parent = slider
 
