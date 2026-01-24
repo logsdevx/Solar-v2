@@ -536,24 +536,15 @@ function Library:Create(table)
             textBoxPadding.PaddingRight = UDim.new(0, 6)
             textBoxPadding.Parent = textBox
 
-            -- CRITICAL: Connect FocusLost event to fire callback
-            textBox.FocusLost:Connect(function(enterPressed)
-                local inputText = textBox.Text
-                if inputText ~= "" then
-                    -- Parse comma-separated values
-                    local values = {}
-                    for value in string.gmatch(inputText, "([^,]+)") do
-                        local trimmed = value:match("^%s*(.-)%s*$")
-                        if trimmed ~= "" then
-                            table.insert(values, trimmed)
-                        end
+            textBox.FocusLost:Connect(function()
+                local values = {}
+                for value in string.gmatch(textBox.Text, "([^,]+)") do
+                    local trimmed = value:match("^%s*(.-)%s*$")
+                    if trimmed ~= "" then
+                        table.insert(values, trimmed)
                     end
-                    -- Call the callback with parsed values
-                    callback(values)
-                else
-                    -- Empty textbox, return empty table
-                    callback({})
                 end
+                callback(values)
             end)
 
             textboxFrame.MouseEnter:Connect(function()
