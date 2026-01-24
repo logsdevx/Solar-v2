@@ -335,7 +335,7 @@ function Library:Create(table)
             local slider = Instance.new("Frame")
             slider.Name = "slider"
             slider.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-            slider.Size = UDim2.new(1, 0, 0, 32)
+            slider.Size = UDim2.new(1, 0, 0, 34)
             slider.Parent = holder
 
             local sliderCorner = Instance.new("UICorner")
@@ -349,7 +349,7 @@ function Library:Create(table)
             sliderLabel.TextSize = 12
             sliderLabel.TextXAlignment = Enum.TextXAlignment.Left
             sliderLabel.BackgroundTransparency = 1
-            sliderLabel.Position = UDim2.fromOffset(10, 8)
+            sliderLabel.Position = UDim2.fromOffset(10, 6)
             sliderLabel.Size = UDim2.new(0.6, -10, 0, 16)
             sliderLabel.Parent = slider
 
@@ -360,7 +360,7 @@ function Library:Create(table)
             valueLabel.TextSize = 12
             valueLabel.TextXAlignment = Enum.TextXAlignment.Right
             valueLabel.BackgroundTransparency = 1
-            valueLabel.Position = UDim2.fromOffset(0, 8)
+            valueLabel.Position = UDim2.fromOffset(0, 6)
             valueLabel.Size = UDim2.new(1, -10, 0, 16)
             valueLabel.Parent = slider
 
@@ -368,7 +368,7 @@ function Library:Create(table)
             sliderButton.Name = "sliderButton"
             sliderButton.Text = ""
             sliderButton.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            sliderButton.Position = UDim2.fromOffset(10, 22)
+            sliderButton.Position = UDim2.fromOffset(10, 24)
             sliderButton.Size = UDim2.new(1, -20, 0, 6)
             sliderButton.AutoButtonColor = false
             sliderButton.Parent = slider
